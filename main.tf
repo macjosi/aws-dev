@@ -45,3 +45,11 @@ resource "aws_route_table_association" "igasso" {
   gateway_id     = aws_internet_gateway.FoodIGW.id
   route_table_id = aws_route_table.Foodrt.id
 }
+resource "aws_instance" "mainFood" {
+  ami           = var.ami_id
+  instance_type = var.instance_type
+
+  tags = {
+    Name = "Food Instance"
+  }
+}
